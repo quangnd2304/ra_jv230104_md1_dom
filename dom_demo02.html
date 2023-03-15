@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - CRUD Element</title>
+</head>
+
+<body>
+    <div id="zone">DIV</div>
+    <script>
+        // innerHTML: mã html ở trong thẻ
+        // innerText: nội dung text của thẻ
+        // Tạo một phần h2 có nội dung tiêu đề 1 trong thẻ div
+        // B1. Tạo phần tử h2
+        let childOfDiv = document.createElement("h2");
+        // B2. Tạo nội dung cho phần từ childOfDiv
+        childOfDiv.innerText = "Tiêu đề 1";
+        // Thêm thẻ h2 vừa tạo vào trong div
+        // B1: truy xuất đến thẻ cha - div
+        let div = document.getElementById("zone");
+        // B2: thêm h2 vào trong div
+        div.appendChild(childOfDiv);
+        //Xóa thẻ h2 trong div
+        // div.removeChild(childOfDiv);
+        // Thay thế thẻ h2 trong div bằng thẻ p có nội dung là đoạn văn 1
+        let elementP = document.createElement("p");
+        elementP.innerText = "Đoạn văn 1";
+        div.replaceChild(elementP, childOfDiv);
+
+    </script>
+</body>
+
+</html>

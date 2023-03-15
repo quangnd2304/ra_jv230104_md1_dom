@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - Search Element</title>
+</head>
+
+<body>
+    <!-- 
+        Định danh phần tử HTML: id, name, class
+        id: định danh duy nhất
+        class: định danh cho các phần tử
+        id,class: định danh phía client
+        name: định danh phía server
+     -->
+    <p id="zone01">Đoạn văn 1</p>
+    <p id="zone01">Đoạn văn 2</p>
+    <h2>Tiêu đề 1</h2>
+    <h2>Tiêu đề 2</h2>
+    <p class="zone02">Đoạn văn 3</p>
+    <p class="zone02">Đoạn văn 4</p>
+    <p class="zone02">Đoạn văn 5</p>
+    <div id="zone03">
+        <p>Đoạn văn 6</p>
+        <p>Đoạn văn 7</p>
+    </div>
+    <input type="text" style="background-color: red;" name="studentId" id="studentId" onchange="changeInput()" />
+    <script>
+        function changeInput() {
+            console.log("Dữ liệu đã thay đổi ở hàm changeInput");
+        }
+        function changeFunction() {
+            console.log("Dữ liệu đã thay đổi ở hàm changeFunction");
+        }
+        // 1. truy xuất đến phần tử p có id = zone01
+        let zoneById = document.getElementById("zone01");
+        console.log("ELEMENT BY ID--->", zoneById);
+        // 2. truy xuất tới tất cả phần tử có tag là h2
+        let zoneByTagName = document.getElementsByTagName("h2");
+        console.log("ELEMENT BY TAGNAME--->", zoneByTagName);
+        // 3.truy xuất tới các phân tử có định danh class
+        let zoneByClass = document.getElementsByClassName("zone02");
+        console.log("ELEMENT BY CLASSNAME--->", zoneByClass);
+        // 4. truy xuất tới phần tử đầu tiên theo bộ chọn (selector)
+        let zoneBySelector = document.querySelector("div p");
+        console.log("ELEMENT BY SELECTOR-->", zoneBySelector);
+        // 5. truy xuất tới các phần tử theo bộ chọn
+        let zoneBySelectorAll = document.querySelectorAll("div p");
+        console.log("ELEMENT ALL BY SELECTOR--->", zoneBySelectorAll);
+        // Thay đổi html trong thẻ
+        let div = document.getElementById("zone03");
+        div.innerHTML = "<h2>Tiêu đề thay đổi</h2>";
+        //Lây các mã html trong thẻ
+        console.log("Mã html trong thẻ div là: ", div.innerHTML);
+        // Thay thuộc tính type của ô input là password
+        let inputElement = document.getElementById("studentId");
+        inputElement.setAttribute("type", "password");
+        // Thay đổi giá trị thuộc tính css của ô input
+        inputElement.style.backgroundColor = "yellow";
+        // Thay đổi giá trị thuộc tính sự kiên
+        inputElement.setAttribute("onchange", "changeFunction()");
+    </script>
+</body>
+
+</html>
